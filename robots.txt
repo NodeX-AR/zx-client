@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Link to your sitemap so Google finds it automatically
-Sitemap: https://zx-client.netlify.app/sitemap.xml
+Sitemap: https://nodex-ar.github.io/zx-client/sitemap.xml
