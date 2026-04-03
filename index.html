@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>ZX Client</title>
+  <meta name="keywords" content="ZX Client, Minecraft Client, NodeX-AR, Aswanth R, Minecraft 1.8, Minecraft 1.12, FPS Boost, Minecraft PVP Client, ZX Client, ZX">
+  <meta name="google-site-verification" content="O_vUE4Ii3kK6ikXVVWO4Liw8vwozOi8EwH39ktMh1mI" />
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0a0f25">
+  <meta name="description" content="ZX Client by Aswanth R">
+  <meta name="author" content="Aswanth R (NodeX-AR)">
+  <link rel="icon" type="image/png" href="/favicon.png?v=1">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #05080f;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* fullscreen animated gradient */
+    .bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background: radial-gradient(ellipse at 30% 40%, #0a0f25, #03050a);
+    }
+
+    .bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        45deg,
+        rgba(60, 100, 200, 0.03) 0px,
+        rgba(60, 100, 200, 0.03) 2px,
+        transparent 2px,
+        transparent 8px
+      );
+      pointer-events: none;
+    }
+
+    /* floating orbs */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.35;
+      z-index: 0;
+      animation: float 25s infinite alternate ease-in-out;
+    }
+
+    .orb-1 {
+      width: 60vh;
+      height: 60vh;
+      background: #2a3f8e;
+      top: -20vh;
+      left: -15vh;
+    }
+
+    .orb-2 {
+      width: 50vh;
+      height: 50vh;
+      background: #5a2a7e;
+      bottom: -15vh;
+      right: -10vh;
+      animation-duration: 30s;
+    }
+
+    .orb-3 {
+      width: 45vh;
+      height: 45vh;
+      background: #1e5f7e;
+      top: 40%;
+      left: 65%;
+      animation-duration: 20s;
+    }
+
+    @keyframes float {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(40px, 30px) scale(1.1); }
+    }
+
+    /* main container */
+    .container {
+      position: relative;
+      z-index: 10;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem;
+    }
+
+    /* hero section */
+    .hero {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .hero h1 {
+      font-size: 8rem;
+      font-weight: 800;
+      letter-spacing: -4px;
+      background: linear-gradient(135deg, #ffffff, #8aadff, #5a7eff);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 40px rgba(90, 126, 255, 0.2);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #8a9bcf;
+      letter-spacing: 2px;
+      margin-top: 0.5rem;
+    }
+
+    /* button row */
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1rem 0 3rem;
+    }
+
+    .btn {
+      padding: 1.2rem 3rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      font-family: inherit;
+      letter-spacing: 1px;
+      background: rgba(10, 15, 30, 0.6);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-18 {
+      border-left: 4px solid #00d4ff;
+      border-right: 1px solid rgba(0, 212, 255, 0.3);
+      color: #a5f3ff;
+    }
+
+    .btn-18:hover {
+      transform: translateY(-4px);
+      background: rgba(0, 212, 255, 0.12);
+      border-left-color: #5effe6;
+      box-shadow: 0 12px 28px -10px rgba(0, 212, 255, 0.3);
+    }
+
+    .btn-112 {
+      border-radius: 60px;
+      border: 1.5px solid #9b4dff;
+      color: #d4a5ff;
+    }
+
+    .btn-112:hover {
+      transform: translateY(-4px);
+      background: rgba(155, 77, 255, 0.12);
+      box-shadow: 0 12px 28px -10px rgba(155, 77, 255, 0.3);
+    }
+
+    .btn-discord {
+      border-radius: 60px;
+      background: linear-gradient(135deg, #1a2340, #0f1322);
+      border: 1px solid #5865f2;
+      color: #ffffff;
+    }
+
+    .btn-discord:hover {
+      transform: translateY(-4px);
+      background: linear-gradient(135deg, #2a3a6e, #1a2340);
+      box-shadow: 0 12px 28px -10px rgba(88, 101, 242, 0.4);
+    }
+
+    /* footer - clean integrated github */
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.2rem 2rem;
+      background: rgba(5, 8, 15, 0.6);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(90, 126, 255, 0.15);
+      z-index: 10;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      font-size: 0.8rem;
+    }
+
+    .footer-link {
+      color: #7a8bc0;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 500;
+    }
+
+    .footer-link:hover {
+      color: #8aadff;
+      text-shadow: 0 0 5px rgba(90, 126, 255, 0.3);
+    }
+
+    .footer-divider {
+      color: #3a4a6e;
+      font-size: 0.7rem;
+    }
+
+    /* responsive */
+    @media (max-width: 900px) {
+      .hero h1 { font-size: 5rem; }
+      .btn { padding: 1rem 2rem; font-size: 1.1rem; }
+      .button-row { gap: 1.5rem; }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 3.5rem; letter-spacing: -2px; }
+      .btn { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
+      .container { padding: 1.5rem; }
+      .button-row { gap: 1rem; }
+      .footer-content { gap: 1rem; font-size: 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <div class="container">
+    <div class="hero">
+      <h1>ZX CLIENT</h1>
+      <p>ASWANTH R · NODEX-AR</p>
+    </div>
+
+    <div class="button-row">
+      <button class="btn btn-18" id="btn18">1.8</button>
+      <button class="btn btn-112" id="btn112">1.12</button>
+      <button class="btn btn-discord" id="btnDiscord">DISCORD</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-content">
+      <span class="footer-divider">◆</span>
+      <a href="https://github.com/NodeX-AR/" target="_blank" class="footer-link">
+        <span>github.com/NodeX-AR</span>
+      </a>
+      <span class="footer-divider">◆</span>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // 1.8 link - replace with your actual URL
+      const LINK_18 = "https://zx-1-8.netlify.app/";  // paste your 1.8 client URL here
+      const DISCORD_URL = "https://discord.gg/rVMWwSS5Wz";
+
+      const btn18 = document.getElementById('btn18');
+      const btn112 = document.getElementById('btn112');
+      const btnDiscord = document.getElementById('btnDiscord');
+
+      function showToast(msg) {
+        const existing = document.querySelector('.zx-toast');
+        if (existing) existing.remove();
+
+        const toast = document.createElement('div');
+        toast.className = 'zx-toast';
+        toast.textContent = msg;
+        toast.style.cssText = `
+          position: fixed;
+          bottom: 80px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: #0f1322e6;
+          backdrop-filter: blur(12px);
+          color: #ffffff;
+          padding: 12px 28px;
+          border-radius: 50px;
+          font-size: 0.9rem;
+          font-family: 'Inter', sans-serif;
+          border: 1px solid #7a9eff;
+          z-index: 10000;
+          white-space: nowrap;
+          max-width: 90vw;
+          white-space: normal;
+          text-align: center;
+          pointer-events: none;
+        `;
+        document.body.appendChild(toast);
+        setTimeout(() => {
+          toast.style.opacity = '0';
+          toast.style.transition = 'opacity 0.25s';
+          setTimeout(() => toast.remove(), 300);
+        }, 2500);
+      }
+
+      btn18.addEventListener('click', () => {
+        if (LINK_18 && LINK_18.startsWith('http')) {
+          window.open(LINK_18, '_blank');
+        } else {
+          showToast('1.8 client ready. Add your URL to LINK_18 variable.');
+        }
+      });
+
+      btn112.addEventListener('click', () => {
+        showToast('1.12 version in development. Join Discord for updates.');
+      });
+
+      btnDiscord.addEventListener('click', () => {
+        window.open(DISCORD_URL, '_blank');
+      });
+
+      if (!LINK_18) {
+        console.log('[ZX Client] Set LINK_18 variable with your 1.8 client URL.');
+      }
+    })();
+  </script>
+</body>
+</html>
