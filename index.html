@@ -283,7 +283,8 @@
   <script>
     (function() {
       // 1.8 link - replace with your actual URL
-      const LINK_18 = "https://nodex-ar.github.io/ZXClient/";  // paste your 1.8 client URL here
+      const LINK_18 = "https://nodex-ar.github.io/ZXClient/";
+      const LINK_112 = "https://nodex-ar.github.io/zx-1.12.2/";
       const DISCORD_URL = "https://discord.gg/rVMWwSS5Wz";
 
       const btn18 = document.getElementById('btn18');
@@ -334,7 +335,7 @@
       });
 
       btn112.addEventListener('click', () => {
-        showToast('1.12 version in development. Join Discord for updates.');
+        window.open(LINK_112, '_blank');
       });
 
       btnDiscord.addEventListener('click', () => {
