@@ -1,11 +1,11 @@
 # 🚀 ZX Client | Official Minecraft Browser Client (1.8.8 & 1.12.2)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/your-netlify-site-id/deploy-status)](https://zx-client.netlify.app/)
+[![Client Status](https://img.shields.io/website-up-down-green-red/https/nodex-ar.github.io/zx-client.svg?label=ZX%20Client%20Status)](https://nodex-ar.github.io/zx-client/)
 
 **ZX Client** is a high-performance, web-based Minecraft client designed for perfect gameplay on versions **1.8.8** and **1.12.2**. Built for speed and compatibility, it allows players to experience Minecraft directly in any web browser with optimized FPS and custom features.
 
 ### 🌐 Official Website
-Access the client here: **[https://zx-client.netlify.app/](https://zx-client.netlify.app/)**
+Access the client here: **[Client](https://nodex-ar.github.io/zx-client/)**
 
 ---
 
@@ -19,7 +19,7 @@ Access the client here: **[https://zx-client.netlify.app/](https://zx-client.net
 ---
 
 ## 🛠️ How to Use
-1. Visit the [Official ZX Client Link](https://zx-client.netlify.app/).
+1. Visit the [Official ZX Client Link](https://nodex-ar.github.io/zx-client/).
 2. Choose your preferred Minecraft version.
 3. Login and start playing with enhanced performance!
 
